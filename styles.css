@@ -1,0 +1,251 @@
+:root {
+  --primary-blue: #002d72;
+  --secundary-blue: #4576ff;
+  --primary-white: #ccc;
+  --white: #fff;
+}
+
+@font-face {
+  font-family: "lilita";
+  src: url(fonts/Lilita_One/LilitaOne-Regular.ttf);
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "tiktok";
+  src: url(fonts/tiktok/TikTokSans-Regular.ttf);
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "lilita", sans-serif;
+  background-color: #f4f4f4;
+  color: var(--primary-blue);
+  height: 100dvh;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+    width: 100%;
+    background-color: #f4f4f4;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.logo {
+  padding: 20px 0 0;
+}
+
+.slider-collections {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espaçamento entre os botões */
+  width: 100%;
+  overflow-x: auto; /* ativa o scroll horizontal */
+  scroll-behavior: smooth; /* rolagem suave */
+  -webkit-overflow-scrolling: touch; /* touch friendly no iOS */
+  scrollbar-width: none; /* esconde barra no Firefox */
+}
+
+.slider-collections::-webkit-scrollbar {
+  display: none; /* esconde barra no Chrome/Safari */
+}
+
+.item-slider {
+  padding: 10px;
+  border: none;
+  font-family: "lilita", sans-serif;
+  text-transform: uppercase;
+  border-radius: 24px;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  transition: background-color 0.3s ease;
+}
+
+.slider-collection:nth-child(odd) .item-slider {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.slider-collection:nth-child(even) .item-slider {
+  background-color: var(--secundary-blue);
+  color: var(--white);
+}
+
+.slider-collection:first-child .item-slider {
+  margin-left: 10px;
+}
+
+.slider-collection:last-child .item-slider {
+  margin-right: 10px;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-10px);
+  }
+  60% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.item-slider.active {
+  background-color: #2ecc71 !important; /* verde sucesso */
+  color: white;
+}
+
+.item-slider.jump {
+  animation: jump 0.4s ease;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  padding: 120px 0;
+}
+.product-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 12px 16px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+  gap: 16px;
+  text-align: start;
+}
+
+.product-card img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.product-info {
+  font-family: "tiktok", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.product-info h3 {
+  font-size: 0.8em;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #aaa;
+  margin: 4px 0 0;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+.add-section,
+.add-controls {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.qty-input {
+  width: 60px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.btn-add {
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  color: white;
+  font-family: 'lilita', sans-serif;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-add:hover {
+  background-color: #27ae60;
+}
+
+.btn-want {
+  padding: 8px 16px;
+  background-color: #2ecc71;
+  color: white;
+  font-family: 'lilita', sans-serif;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-want:hover {
+  background-color: #27ae60;
+}
+
+.add-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  align-items: center;
+}
+
+.add-controls.hidden {
+  display: none;
+}
+
+.values {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  background-color: #f4f4f4;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  gap: 10px;
+}
+
+.total-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 100%;
+  color: var(--primary-blue);
+  display: flex;
+  justify-content: space-between;
+}
