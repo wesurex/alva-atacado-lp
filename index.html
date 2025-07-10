@@ -19,12 +19,12 @@
           <button class="item-slider active" data-filter="all">Todos</button>
         </div>
         <div class="slider-collection">
-          <button class="item-slider" data-filter="desodorante">
+          <button class="item-slider" data-filter="desodorantes">
             Desodorante
           </button>
         </div>
         <div class="slider-collection">
-          <button class="item-slider" data-filter="body-hair">
+          <button class="item-slider" data-filter="body & hair">
             Body & Hair
           </button>
         </div>
@@ -43,7 +43,7 @@
           <button class="item-slider" data-filter="sun">Sun</button>
         </div>
         <div class="slider-collection">
-          <button class="item-slider" data-filter="accessorio">
+          <button class="item-slider" data-filter="acessórios">
             Acessórios
           </button>
         </div>
@@ -51,15 +51,50 @@
     </header>
     <main class="main-content" id="product-list"></main>
     <section class="cart">
-        <div class="values">
-            <div class="total-value">
-                <span>Total:</span>
-                <span id="total-value">R$ 0,00</span>
-            </div>
-            <button class="btn-add" id="btn-add">ENVIAR PEDIDO</button>
+      <div class="values">
+        <div class="total-value">
+          <span>Total:</span>
+          <span id="total-value">R$ 0,00</span>
         </div>
+        <button class="btn-add" id="btn-add">ENVIAR PEDIDO</button>
+      </div>
     </section>
+    <div id="modal-resumo" class="modal-overlay" style="display: none">
+  <div class="modal-box">
+    <h2>Finalizar Pedido</h2>
+    <div
+      id="resumo-conteudo"
+      style="text-align: left; max-height: 200px; overflow: auto; margin-bottom: 1rem;"
+    ></div>
 
+    <form
+      id="pedido-form"
+      style="display: flex; flex-direction: column; gap: 10px"
+    >
+      <input type="text" id="nome" placeholder="Nome completo" required />
+      <input type="email" id="email" placeholder="E-mail" required />
+      <input type="text" id="documento" placeholder="CPF ou CNPJ" required />
+      <input type="text" id="telefone" placeholder="Telefone" required />
+    </form>
+
+    <div class="modal-actions">
+      <button id="resumo-cancelar">Cancelar</button>
+      <button id="resumo-enviar">Enviar Pedido</button>
+    </div>
+  </div>
+</div>
+    <div id="modal" class="modal-overlay" style="display: none">
+      <div class="modal-box">
+        <h2 id="modal-title">Adicionar Produto</h2>
+        <input type="number" id="modal-qty" min="1" value="100" />
+        <div class="modal-actions">
+          <button id="modal-cancel">X</button>
+          <button id="modal-remove">Remover</button>
+          <button id="modal-add">ADD</button>
+        </div>
+      </div>
+    </div>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.4.2/imask.min.js"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
